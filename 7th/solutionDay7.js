@@ -13,11 +13,7 @@ let arrayResults = [];
 let arrayTotals = [];
 for(let i = mesures[0]; i <= mesures[mesures.length - 1]; i++) {
   for(let j = 0; j < mesures.length; j++) {
-    if(i > mesures[j]) {
-      arrayResults.push(i - mesures[j])
-    } else {
-      arrayResults.push(mesures[j] - i)
-    }
+      arrayResults.push(Math.abs(mesures[j] - i))
   }
   let totalFuel = arrayResults.reduce((a, b) => a + b, 0)
   arrayTotals.push(totalFuel)
@@ -42,13 +38,8 @@ function calculateFuel(number) {
 for(let i = mesures[0]; i <= mesures[mesures.length - 1]; i++) {
   for(let j = 0; j < mesures.length; j++) {
     let distance
-    if(i > mesures[j]) {
-      distance = calculateFuel(i - mesures[j])
-      arrayResults2.push(distance)
-    } else {
-      distance = calculateFuel(mesures[j] - i)
-      arrayResults2.push(distance)
-    }
+    distance = calculateFuel(Math.abs(mesures[j] - i))
+    arrayResults2.push(distance)
   }
   let totalFuel2 = arrayResults2.reduce((a, b) => a + b, 0)
   arrayTotals2.push(totalFuel2)
